@@ -10,10 +10,6 @@ const Main = () => {
     const {events, loading, getEvents} = useContext(EventContext);
     const [filteredEvents, setFilteredEvents] = useState(events);
 
-    const filterValue = (value) => {
-        setFilteredEvents(events.filter((item) => item.name.includes(value)));
-    };
-
     useEffect(() => {
         getEvents();
     }, []);
@@ -22,6 +18,9 @@ const Main = () => {
         setFilteredEvents(events);
     }, [events]);
 
+    const filterValue = (value) => {
+        setFilteredEvents(events.filter((item) => item.name.includes(value)));
+    };
 
     return (
         <div className="main-container">
